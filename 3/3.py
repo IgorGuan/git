@@ -1,12 +1,13 @@
 import math
 
+
 class Shape:
     def area(self):
         raise NotImplementedError("Subclasses must implement this method")
-    
+
     def perimeter(self):
         raise NotImplementedError("Subclasses must implement this method")
-    
+
     def compare_area(self, other_shape):
         if self.area() > other_shape.area():
             return "greater than"
@@ -23,6 +24,7 @@ class Shape:
         else:
             return "equal to"
 
+
 class Square(Shape):
     def __init__(self, side):
         self.side = side
@@ -32,6 +34,7 @@ class Square(Shape):
 
     def perimeter(self):
         return 4 * self.side
+
 
 class Rectangle(Shape):
     def __init__(self, width, height):
@@ -43,6 +46,7 @@ class Rectangle(Shape):
 
     def perimeter(self):
         return 2 * (self.width + self.height)
+
 
 class Triangle(Shape):
     def __init__(self, base, height):
@@ -56,6 +60,7 @@ class Triangle(Shape):
         # Assuming it's an equilateral triangle for simplicity
         return 3 * self.base  # This is a simplification
 
+
 class Circle(Shape):
     def __init__(self, radius):
         self.radius = radius
@@ -66,22 +71,20 @@ class Circle(Shape):
     def perimeter(self):
         return 2 * math.pi * self.radius
 
-# 示例用法
+
+# for example
 if __name__ == "__main__":
     square = Square(4)
     rectangle = Rectangle(3, 6)
     triangle = Triangle(4, 3)
     circle = Circle(5)
-
     print(f"Square area: {square.area()}, perimeter: {square.perimeter()}")
     print(f"Rectangle area: {rectangle.area()}, perimeter: {rectangle.perimeter()}")
     print(f"Triangle area: {triangle.area()}, perimeter: {triangle.perimeter()}")
     print(f"Circle area: {circle.area()}, perimeter: {circle.perimeter()}")
-
-    # 比较面积
+    # square 
     print(f"Square area is {square.compare_area(rectangle)} Rectangle area.")
     print(f"Circle area is {circle.compare_area(triangle)} Triangle area.")
-
-    # 比较周长
+    # perimeter
     print(f"Rectangle perimeter is {rectangle.compare_perimeter(circle)} Circle perimeter.")
     print(f"Triangle perimeter is {triangle.compare_perimeter(square)} Square perimeter.")
